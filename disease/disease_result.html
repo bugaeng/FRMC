@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질병 진단</title>
+    <link href="disease_result.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+</head>
+<body>
+    <div id="loading-table">
+        <img src="../image/location.png" id="loading">
+        <strong><div id="loading-tag">관련 병원을 지도에 표시중...</div></strong>
+    </div>
+    <div class="title">종합 질병 진단</div>
+    <div class="None1"></div>
+    <div class="container1" style="border: 0px; padding: 0px">   
+    <div class="tab1">
+        <div class="block">안면비대칭검사<img id="circle1" src="../image/circle.png" style="background-color: rgb(255, 255, 255);"></div>  
+        <div class="block">피부병변검사<img id="circle" src="../image/circle.png" style="background-color: rgb(255, 255, 255);"></div>  
+        <div class="block" style="background-color: rgb(255, 207, 74);">결과 분석<img id="circle2" src="../image/circle.png"></div>          
+        <div class="block">관련 병원 추천</div>
+    </div>
+    </div>
+    <div class="container2">
+        <div class="maintxt">검사 결과</div>
+        <hr>
+            <span class="name"></span>님의 검사 결과입니다.
+            <br>
+            <table>
+                <tr>
+                    <th scope="col" colspan="2">이 름</th>
+                    <th scope="col" colspan="2">생년월일</th>
+                    <th scope="col">성별</th>
+                </tr>
+                <tr>
+                    <td id="d_name" scope="col" colspan="2">-</td>
+                    <td id="d_age" scope="col" colspan="2">-</td>
+                    <td id="d_gender">-</td>
+                </tr>
+                <tr>
+                    <th scope="col"  rowspan="16">구분</th>
+                    <th scope="col"  rowspan="8">안면비대칭 검사</th>
+                    <th>측정 항목</th>
+                    <th>value</th>
+                    <th>비고</th>
+                </tr>
+                <tr style="text-align: left;">
+                    <td>Left Lib Distance</td>
+                    <td id="left_lib_distance_d">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td>Right Lib Distance</td>
+                    <td id="right_lib_distance_d">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td>Left Eye Distance</td>
+                    <td id="left_eye_distance_d">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td>Right Eye Distance</td>
+                    <td id="right_eye_distance_d">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td>Lib Asymmetry</td>
+                    <td class="lip-value">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td style="text-align: left;">Eye Asymmetry</td>
+                    <td class="eye-value"></td>
+                    <td></td>
+                </tr style="text-align: left;">
+                <tr style="text-align: left;">
+                    <td>Total</td>
+                    <td class="total-value">0</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="col" rowspan="8">피부병변 검사</th>
+                    <th>측정 항목</th>
+                    <th>value</th>
+                    <th>비고</th>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label0">0</td>
+                    <td id="probabilities0">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label1"></td>
+                    <td id="probabilities1">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label2">0</td>
+                    <td id="probabilities2">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label3">0</td>
+                    <td id="probabilities3">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label4">0</td>
+                    <td id="probabilities4">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label5">0</td>
+                    <td id="probabilities5">0</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: left;">
+                    <td id="label6">0</td>
+                    <td id="probabilities6">0</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="content_result">
+                <div class="txt-box">
+                    <strong><div class="result_title">안면비대칭검사&nbsp;&nbsp;</strong><span id="facial-result"></span></div>
+                    <div class="img-box">
+                        <div class="img"></div>
+                        <div class="img_tag">비대칭 검사 이미지</div>
+                    </div>
+                    진단 결과, 좌우간 입술의 비대칭 정도가 <span class="lip-value-r"></span> 정도이고, 눈의 비대칭 정도는 <span class="eye-value-r"></span> 입니다. 즉, <span id="facial1"></span>
+                    따라서, 좌우대비 <span class="total-value-r"></span> 정도로 대체적으로 <span class="asy" style="color:rgb(0, 81, 255)"></span>적인 형태를 띄고 있습니다. <span id="add"></span>
+                    <div style="margin-bottom: 40px;"></div>
+                    <strong><div class="result_title">피부병변검사</strong>&nbsp;&nbsp;<span id="skin-result"></span></div>
+                    <div class="img-box">
+                        <div class="img-s"></div>
+                        <div class="img_tag">피부병변 검사 이미지</div>
+                    </div>
+                    카메라로 인식한 사용자의 피부 상태와 피부병변 6가지(보웬병, 기저세포암종, 각화증 병변, 피부 섬유종, 흑색종, 혈관병변)를 비교한 진단 결과입니다.
+                    측정하신 피부의 병변 진단 결과, <span class="score_label"></span> 확률로 <span class="skin_label"></span>
+                    <div class="result_title" style="margin-bottom: 40px;"></div>
+                    <span id="end"></span>
+                </div>
+            </div>
+                <br>
+                <div style="text-align: right; margin-bottom: 20px;">
+                    <strong><a class="send_result">병원추천 <img src="../image/next-page.png" class="hvr-icon" style="width: 20px; transform: translate(0, 4px);" ></a></strong>
+                </div>
+    </div>
+    <button id="live-chat"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</button>
+    <script>
+        document.getElementById('live-chat').addEventListener('click', function() {
+            window.location.href = '../Mainpage.html';
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const storename = localStorage.getItem("name")
+            const storelip = localStorage.getItem("lip-value")
+            const storeeye = localStorage.getItem("eye-value")
+            const storetotal = localStorage.getItem("total-value")
+            const storeskinlabel = localStorage.getItem("skin_label")
+            const storeskinscore = localStorage.getItem("score_label")
+            const storefacialimage = localStorage.getItem("facial_image")
+            const storeskinimage = localStorage.getItem("Skin_image")
+            const storelabel0 = localStorage.getItem("label0")
+            const storelabel1 = localStorage.getItem("label1")
+            const storelabel2 = localStorage.getItem("label2")
+            const storelabel3 = localStorage.getItem("label3")
+            const storelabel4 = localStorage.getItem("label4")
+            const storelabel5 = localStorage.getItem("label5")
+            const storelabel6 = localStorage.getItem("label6")
+            const probabilities0 = localStorage.getItem("probabilities0")
+            const probabilities1 = localStorage.getItem("probabilities1")
+            const probabilities2 = localStorage.getItem("probabilities2")
+            const probabilities3 = localStorage.getItem("probabilities3")
+            const probabilities4 = localStorage.getItem("probabilities4")
+            const probabilities5 = localStorage.getItem("probabilities5")
+            const probabilities6 = localStorage.getItem("probabilities6")
+            const left_lib_distance_d = localStorage.getItem("left_lib_distance_d")
+            const right_lib_distance_d = localStorage.getItem("right_lib_distance_d")
+            const left_eye_distance_d = localStorage.getItem("left_eye_distance_d")
+            const right_eye_distance_d = localStorage.getItem("right_eye_distance_d")
+            const d_name = localStorage = localStorage.getItem("name")
+            const d_age = localStorage = localStorage.getItem("age")
+            const d_gender = localStorage = localStorage.getItem("gender")
+
+            if (d_name) {
+                document.querySelector('#d_name').textContent = d_name;
+            }
+
+            if (d_age) {
+                document.querySelector('#d_age').textContent = d_age;
+            }
+
+            if (d_gender) {
+                document.querySelector('#d_gender').textContent = d_gender;
+            }
+
+
+            if (storename) {
+                document.querySelector('.name').textContent = storename;
+            }
+
+            if (storelip) {
+                document.querySelector('.lip-value').textContent = storelip;
+                document.querySelector('.lip-value-r').textContent = storelip;
+            }
+
+            if (storeeye) {
+                document.querySelector('.eye-value').textContent = storeeye;
+                document.querySelector('.eye-value-r').textContent = storeeye;
+            }
+
+            if (storetotal) {
+                document.querySelector('.total-value').textContent = storetotal;
+                document.querySelector('.total-value-r').textContent = storetotal;
+            }
+
+            if (storetotal <= 10){
+                document.querySelector('.asy').innerHTML = '대칭';
+                document.querySelector('#facial-result').style.backgroundColor = 'blue';
+                document.querySelector('#facial-result').style.color = 'white';
+                document.querySelector('#facial-result').innerHTML = '&nbsp;&nbsp;정상&nbsp;&nbsp;';
+            }
+            else {
+                document.querySelector('.asy').innerHTML = '비대칭';
+                document.querySelector('#facial-result').style.backgroundColor = 'red';
+                document.querySelector('#facial-result').style.color = 'white';
+                document.querySelector('#facial-result').innerHTML = '&nbsp;&nbsp;진료필요&nbsp;&nbsp;';
+                document.querySelector('#add').innerHTML = '또한 웃음을 지은 상태로 촬영한 결과, 좌우 한쪽 부위의 이마에만 주름이 생겼다면 뇌졸중을 의심해봐야 합니다.';
+            }
+
+            if (storeskinlabel == 'Normal'){
+                document.querySelector('.skin_label').textContent = storeskinlabel + '(정상)입니다.';
+                document.querySelector('#skin-result').style.backgroundColor = 'blue';
+                document.querySelector('#skin-result').style.color = 'white';
+                document.querySelector('#skin-result').innerHTML = '&nbsp;&nbsp;정상&nbsp;&nbsp;';
+                
+            }
+            else {
+                document.querySelector('.skin_label').textContent = storeskinlabel + '라는 피부 질환이 의심 됩니다.';
+                document.querySelector('#skin-result').style.backgroundColor = 'red';
+                document.querySelector('#skin-result').style.color = 'white';
+                document.querySelector('#skin-result').innerHTML = '&nbsp;&nbsp;진료필요&nbsp;&nbsp;';
+                
+            }
+
+            if (storeskinlabel != 'Normal' || storetotal > 10) {
+                document.querySelector('#end').innerHTML = '<img src="../image/warning.png"> 병원 진료가 필요합니다. 다음 진행 단계에서 진단 결과에 따른 관련 병원을 찾아볼 수 있는 기능을 제공합니다.';
+            }
+            else if (storeskinlabel == 'Normal' && storetotal <= 10) {
+                document.querySelector('#end').innerHTML = '<img src="../image/check.png"> 진단 결과, 모두 정상 범위 내 있습니다.';
+            }
+            else {
+                document.querySelector('#end').innerHTML = '';
+            }
+
+            document.querySelector(".send_result").addEventListener("click", () => {
+                if (storeskinlabel == 'Normal' && storetotal <= 10) {
+                    alert('병원 진단이 필요하지 않아 메인으로 이동합니다.');
+                    window.location.href = "../Mainpage.html";
+                } else {
+                    event.preventDefault();
+                    showLoading();
+                    setTimeout(next, 3000);
+                }
+            });
+
+            function  showLoading() {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('loading-table').style.display = 'block';
+                document.getElementById('loading-table').style.opacity = '1';
+                document.getElementById('loading').style.opacity = '1';
+
+                document.querySelector(".container1").style.opacity = '0.4';
+                document.querySelector(".container2").style.opacity = '0.4';
+                document.querySelector(".title").style.opacity = '0.4';
+            }
+
+            function next() {
+                window.location.href = "map.html";
+            }
+
+
+            if (storeskinscore){
+                document.querySelector('.score_label').textContent = storeskinscore*100+"%";
+            }
+
+            if (storefacialimage) {
+                // Assuming storefacialimage is the path or URL to the image
+                const imgElement = document.querySelector('.img');
+                imgElement.innerHTML = '<img src="' + storefacialimage + '" alt="Facial Image" max-width="200" max-height="100" width="50%" height="50%" border="7px solid" border-radius="3px">';
+            }
+
+            if (storeskinimage) {
+                // Assuming storefacialimage is the path or URL to the image
+                const imgElement = document.querySelector('.img-s');
+                imgElement.innerHTML = '<img src="' + storeskinimage + '" alt="Facial Image" max-width="200" max-height="100" width="50%" height="50%"  border="7px solid" border-radius="3px">';
+            }
+
+            if (storelabel0) {
+                document.querySelector('#label0').textContent = storelabel0;
+            }
+            if (storelabel1) {
+                document.querySelector('#label1').textContent = storelabel1;
+            }
+            if (storelabel2) {
+                document.querySelector('#label2').textContent = storelabel2;
+            }
+            if (storelabel3) {
+                document.querySelector('#label3').textContent = storelabel3;
+            }
+            if (storelabel4) {
+                document.querySelector('#label4').textContent = storelabel4;
+            }
+            if (storelabel5) {
+                document.querySelector('#label5').textContent = storelabel5;
+            }
+            if (storelabel6) {
+                document.querySelector('#label6').textContent = storelabel6;
+            }
+            // 
+            if (probabilities0) {
+                document.querySelector('#probabilities0').textContent = probabilities0;
+            }
+            if (probabilities1) {
+                document.querySelector('#probabilities1').textContent = probabilities1;
+            }
+            if (probabilities2) {
+                document.querySelector('#probabilities2').textContent = probabilities2;
+            }
+            if (probabilities3) {
+                document.querySelector('#probabilities3').textContent = probabilities3;
+            }
+            if (probabilities4) {
+                document.querySelector('#probabilities4').textContent = probabilities4;
+            }
+            if (probabilities5) {
+                document.querySelector('#probabilities5').textContent = probabilities5;
+            }
+            if (probabilities6) {
+                document.querySelector('#probabilities6').textContent = probabilities6;
+            }
+            // 
+            if (left_lib_distance_d) {
+                document.querySelector('#left_lib_distance_d').textContent = left_lib_distance_d;
+            }
+            if (right_lib_distance_d) {
+                document.querySelector('#right_lib_distance_d').textContent = right_lib_distance_d;
+            }
+            if (left_eye_distance_d) {
+                document.querySelector('#left_eye_distance_d').textContent = left_eye_distance_d;
+            }
+            if (right_eye_distance_d) {
+                document.querySelector('#right_eye_distance_d').textContent = right_eye_distance_d;
+            }
+
+            //
+            if (storelip > storeeye) {
+                document.querySelector('#facial1').textContent = '눈 좌우측에서 얼굴 중심까지의 비대칭 값 보다, 입술 좌우측에서의 비대칭 값이 ' + (Math.abs(storelip - storeeye)).toFixed(4) + ' 정도 높습니다. ';
+            }
+            else if (storelip < storeeye) {
+                document.querySelector('#facial1').textContent = '입술 좌우측에서 얼굴 중심까지의 비대칭 값 보다, 눈 좌우측에서의 비대칭 값이 ' + (Math.abs(storelip - storeeye)).toFixed(4) + ' 정도 높습니다. ';
+            }
+
+            });
+    </script>
+</body>
+</html>

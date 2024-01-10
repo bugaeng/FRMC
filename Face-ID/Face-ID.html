@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>face recognition</title>
+    <link href="Face-ID.css" rel="stylesheet">
+    <style>
+        #samples{
+            margin: 4px 0 0 0;
+            width: 100%;
+            display: block;
+            padding: 0;
+            list-style: none;
+            position: relative;
+            overflow-y:scroll;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        #samples li {
+            display: inline-block;
+            list-style: none;
+            margin: 0px 5px 0 0;
+            padding: 5px;
+            width: 58px;
+            height: 58px;
+        }
+        #captureButton, #downloadButton, #resetButton {
+        /* Add your custom styles here */
+        margin: 10px;   
+        }
+    </style>
+    <script src="your-p5js-sketch.js" defer></script>
+</head>
+<body>
+    <!-- <div id="webcam-container"></div>
+    <div id="label-container"></div>
+    <button type="button" onclick="init()">Start</button>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript" src="Cam.js"></script> -->
+
+    <div class="title">face recognition</div>
+    <main>
+    <div id="button-container">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/addons/p5.dom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="Face-ID.js"></script>
+    </main>
+    
+    <div class="result1" style="color: white">얼굴을 인식하세요.</div>
+    <div class="result2" style="color: white"></div>
+    <div class="imageContainer">
+    </div>
+</body>
+
+</html>

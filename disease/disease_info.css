@@ -1,0 +1,221 @@
+@media screen and (max-width: 1060px) {
+    div.tab1{
+        display: none;
+    }
+}
+
+@font-face {
+font-family: 'JalnanGothic';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background-color: #e2e2e2;
+}
+
+html{
+    /* font-family: 'JalnanGothic'; */
+    font-family: 'Pretendard-Regular';
+}
+.title{
+    /* color: rgb(38,74,176); */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.container{
+    border: 2px solid #919191;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    width: 80%;
+    max-width: 1000px;
+    min-width: 300px;
+    height: auto;
+    text-align: center;
+    padding: 30px 30px 10px 30px;
+    margin: auto;
+    background-color: white;
+    /* position:absolute; */
+}
+
+.None1{
+    margin-top:50px;
+}
+.None2{
+    margin-top:50px;
+}
+.None3{
+    margin-bottom: 200px;
+}
+
+
+.maintxt{
+    font-size: 2.1rem;
+}
+hr{
+    height: 10px;
+    /* background-color: aliceblue; */
+    background-color: #222222;
+    border: 0px;
+    margin-bottom: 30px;
+}
+
+
+
+.tab1{
+    position: relative;
+    margin-bottom: 50px;
+}
+.block{
+    width: 50%;
+    max-width: 200px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    padding-top: 30px;
+}
+#circle1{
+    max-width: 30px;
+    position: absolute; /* 추가된 부분: 절대 위치 설정 */
+    transform: translate(100%, -20%);
+    background-color: rgb(255, 207, 74);
+    border-radius: 100%;
+}
+#circle{
+    max-width: 30px;
+    position: absolute; /* 추가된 부분: 절대 위치 설정 */
+    transform: translate(135%, -20%);
+    background-color: rgb(255, 207, 74);
+    border-radius: 100%;
+}
+#circle2{
+    max-width: 30px;
+    position: absolute; /* 추가된 부분: 절대 위치 설정 */
+    transform: translate(185%, -20%);
+    background-color: rgb(255, 207, 74);
+    border-radius: 100%;
+}
+
+.content_title{
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: black;
+    text-decoration: underline;
+    /* text-decoration-color: aliceblue; */
+    text-decoration-color: #e2e2e2;
+    text-decoration-thickness: 5px;
+}
+.content_subtitle{
+    margin-bottom: 10px;
+}
+
+.content{
+    font-weight: 0;
+    color: gray; 
+    margin-bottom: 10px;   
+}
+.content_img{
+    font-weight: 0;
+    color: gray; 
+    margin-bottom: 10px;  
+    margin: auto;
+    text-align: center; 
+}
+
+.image_label{
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.hvr-bounce-to-right {
+display: inline-block;
+vertical-align: middle;
+-webkit-transform: perspective(1px) translateZ(0);
+transform: perspective(1px) translateZ(0);
+box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+position: relative;
+-webkit-transition-property: color;
+transition-property: color;
+-webkit-transition-duration: 0.5s;
+transition-duration: 0.5s;
+text-decoration: none;
+color: black;
+border: 3px solid #919191;
+border-radius: 5px;
+width: 100%;
+max-width: 150px;
+height: 40px;
+font-size: 1.3rem;
+padding-top: 1.5%;
+margin-bottom: 40px;
+}
+.hvr-bounce-to-right:before {
+content: "";
+position: absolute;
+z-index: -1;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: #264ab0;
+-webkit-transform: scaleX(0);
+transform: scaleX(0);
+-webkit-transform-origin: 0 50%;
+transform-origin: 0 50%;
+-webkit-transition-property: transform;
+transition-property: transform;
+-webkit-transition-duration: 0.5s;
+transition-duration: 0.5s;
+-webkit-transition-timing-function: ease-out;
+transition-timing-function: ease-out;
+}
+.hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
+color: white;
+}
+.hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
+-webkit-transform: scaleX(1);
+transform: scaleX(1);
+-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+.txt-box{
+    font-family: 'Pretendard-Regular';
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+    margin: auto;
+}
+
+#live-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 117px;
+    height: 40px;
+    border: none;
+
+    backdrop-filter: blur(3px);
+    border-radius: 6px;
+    background-color: rgba(40, 40, 40, 0.9);
+    color: white;
+
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }

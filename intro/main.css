@@ -1,0 +1,488 @@
+@media screen and (max-width: 1350px) {
+    
+    .container3, .container2, div.map-flex{
+        flex-direction: column;
+    }
+
+    div.container2{
+        height: 700px;
+    }
+
+    .con4-stack-title{
+        text-align: center;
+        margin: auto;
+    }
+
+    div.maptxt{
+        line-height: 40px;
+        width: 500px;
+        font-size: 1.5rem;
+    }
+
+    div.mapimg {
+        width: 500px;
+    }
+
+    .features1, .features2{
+        width: 500px;
+    }
+
+    .features1 hr, .features2 hr{
+        display: none;
+    }
+
+    div.ft-txt2, div.ft-txt3-1, div.ft-txt3-2, #ft-content{
+        display: none;
+    }
+
+    div.ft-txt1, div.ft-txt2 {
+        padding: 20px;
+    }
+
+    div.con2-active{
+        max-width: 700px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    
+    .info ul{
+        display: none;
+    }
+
+    div.txtbox p{
+        font-size: clamp(10px, 5vw, 25px);
+    }
+
+    #txtbox-title{
+        font-size: clamp(35px, 5vw, 38px);
+    }
+
+    #img2-2, #img2-3{
+        display: none;
+    }
+
+    .txtbox{
+        margin:auto;
+    }
+
+    div.container2-2, div.container2-3{
+        gap: 0px;
+    }
+
+    
+}
+
+@media screen and (max-width: 680px) {
+    div.container2 {
+        height: 700px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .features1, .features2{
+        width: 350px;
+    }
+
+    div.mapflex, div.mapimg{
+        width: 300px;
+    }
+
+    div.maptxt{
+        width: 300px;
+    }
+
+    p{
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    div.container4 {
+        height: 1300px;
+    }
+
+    div.slideshow-container{
+        height: 600px;
+    }
+
+    div.mySlides{
+        height: 600px;
+    }
+
+    #slide-img1, #slide-img2, #slide-img3{
+        height: 100%;
+    }
+
+    h1{
+        display: none;
+    }
+
+    .con4-title-2{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.container4 {
+        height: 1500px;
+    }
+    p.copy{
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src:
+    url('/Mona Sans/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('/Mona Sans/Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 900 900;
+    font-stretch: 70% 125%;
+}
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+button-a:hover{
+    cursor: auto;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+*{ 
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    box-sizing: border-box; 
+}
+
+html{
+font-size: 16px;
+overflow-x: hidden;
+}
+
+body{
+margin: 0;
+overflow-x: hidden;
+}
+
+hr, p{
+margin: 0;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-height: 50px;
+    padding: 80px 80px 0px 80px;
+
+    align-items: center; 
+    text-align: center;
+
+    font-size: clamp(6px, 5vw, 1.4rem);
+    color: white;
+
+    z-index: 2;
+    position: fixed;
+}
+
+#info-list1, #info-list2, #info-list3, #info-list4, #info-login {
+    color: white;
+    text-decoration: none;
+}
+
+.info {
+    transition: background-color 0.5s ease; /* Add a smooth transition effect */
+}
+
+.white-bg {
+    background-color: #222222 !important; /* Set the background color to white */
+    opacity:0.9;
+    padding: 40px 80px 50px 80px;
+}
+
+.black-text {
+    color: white !important;
+}
+
+.info-left{
+    text-align: left;
+}
+.info-center{
+    text-align: center;
+}
+.info-right{
+    text-align: center;
+}
+ul{
+    padding: 0%;
+    margin: auto;
+    /* margin-right: 100px; */
+}
+ul a{
+    padding: 10px 25px 10px 25px;
+}
+.slideshow-container{
+    max-height: 918px;
+    height: 100%;
+    background-repeat: no-repeat;
+    /* background-image: url("/image/fireworks-1880045_1920.jpg"); */
+    /* background-color: rgba(0, 0, 0, 0, 900); */
+    position: relative;
+    text-align: center;
+}
+
+.con2-title{
+    font-size: clamp(40px, 10vw, 60px); 
+}
+
+.con2-content{
+    max-width: 200px;
+    font-size: clamp(10px, 5vw, 32px);
+}
+
+.con2-content-btn{
+    max-width: 500px;
+
+}
+.con2-txt{
+    padding: 24px;
+    max-width: 640px;
+    margin: auto;
+}
+.con2-active{
+    padding: 24px;
+    font-size: clamp(10px, 5vw, 32px);
+    margin: auto;
+}
+.con2-active-button{
+    max-width: 160px;
+    width: 100%;
+    height: 45px;
+    background-color: rgb(38,74,176);
+    color: white;
+    font-family: 'JalnanGothic';
+    border: 1px solid rgb(38,74,176);
+    border-radius: 30px;
+}
+
+.half-image{
+    width: 40%;
+}
+.half-txt{
+    width: 60%;
+}
+
+.container2{
+    height: 500px;
+    display: flex;
+
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color: #222222;
+    color: white;
+    margin: auto;
+    padding: 24px;
+}
+
+.container2-2, .container2-3{
+    height: 470px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 24px;
+    margin: auto;
+    gap: 24px;
+    /* width: 80%; */
+}
+
+.container2-2{
+    margin-top: 40px;
+}
+
+.container2-3{
+    margin-bottom: 20px;
+}
+
+.imgbox{
+    max-width: 50%;
+}
+.txtbox{
+    position: relative;
+    max-width: 70%;
+    align-items: center;
+    text-align: left;
+}
+
+#txtbox-title{
+    font-size: clamp(35px, 5vw, 48px);
+    width: 100%;
+}
+
+.txtbox p{
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    font-size: clamp(12px, 5vw, 30px);
+}
+
+#txtbox-span{
+    color: rgb(0, 153, 255);
+    font-size: clamp(12px, 5vw, 35px);
+}
+
+.container3{
+    height: 918px;
+    background-color: #222222;
+    color: white;
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+
+}
+.con3-title{
+    font-size: clamp(16px, 5vw, 48px);
+    width: 20%;
+}
+
+.features1, .features2{
+    max-width: 500px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+    text-align: left;
+}
+
+.features1 p{
+    margin: 0;
+}
+
+.ft-img{
+    max-width: 500px;
+    width: 100%;
+    max-height: 280px;
+    height: 100%;
+    margin: auto;
+    align-items: center;
+    font-family: Tahoma, Verdana, sans-serif;
+    color:#222222;
+    height: auto; /* 이미지가 비율을 유지하며 너비에 맞게 조정됨 */
+    object-fit: cover; /* 비율 유지한 채로 이미지가 크롭되지 않도록 설정 */
+}
+
+#ft-images, #ft-images2{
+    border-radius: 20px 20px 0px 0px;
+    max-height: 280px;
+}
+
+.ft-txt1{
+    max-height: 150px;
+    height: 100%;
+    padding: 20px 20px 20px 20px;
+    font-size: clamp(6px, 5vw, 18px);
+    font-weight: 1000;
+}
+
+#ft-content{
+    margin-top: 15px;
+    font-size: clamp(6px, 5vw, 1rem);
+    font-weight: 100;
+    width: 100%;
+}
+
+.ft-txt2{
+    max-height: 100px;
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    padding: 20px;
+    font-size: clamp(8px, 5vw, 1.1rem);
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+.ft-txt3-1, .ft-txt3-2{
+    max-height: 100px;
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    padding: 20px;
+    font-size: clamp(7px, 5vw, 1.1rem);
+}
+
+
+.container4{
+    height: 1250px;
+    background-color: #e2e2e2;
+    color: #222222;
+    padding: 24px;
+    text-align: center;
+    margin: auto;
+    overflow-y: hidden;
+}
+
+.map-flex{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    /* width: 100%; */
+    margin-bottom: 50px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.con4-title{
+    margin: 50px 0px 50px 0px;
+    font-size: clamp(40px, 10vw, 60px); 
+}
+
+.con4-title-2{
+    margin: 80px 0px 50px 0px;
+    font-size: clamp(40px, 10vw, 60px); 
+}
+
+.mapimg {
+    width: 600px;
+    /* border-radius: 30%; */
+}
+
+.maptxt {
+    width: 50%;
+    font-size: 2rem;
+    text-align: left;
+    line-height: 70px;
+}
+
+#live-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 117px;
+    height: 40px;
+    border: none;
+
+    backdrop-filter: blur(3px);
+    border-radius: 6px;
+    background-color: rgba(40, 40, 40, 0.9);
+    color: white;
+
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }

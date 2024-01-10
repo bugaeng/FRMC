@@ -1,0 +1,238 @@
+@media screen and (max-width: 1060px) {
+    div.tab1{
+        display: none;
+    }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+#cam {
+    display: none;
+}
+
+#loading-table{
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(38,74,176);
+    text-align: center;
+    font-size: 1.5rem;
+    position: fixed;
+    z-index: 1;
+}
+
+#loading-tag {
+    margin-top: 30px;
+}
+
+#loading {
+display: inline-block;
+width: 150px;
+height: 150px;
+/* border: 3px solid rgba(255,255,255,.3); */
+border: 5px solid rgba(117, 117, 117, 0.3);
+border-radius: 50%;
+border-top-color: rgb(38,74,176);
+animation: spin 1.5s ease-in-out infinite;
+-webkit-animation: spin 1.5s ease-in-out infinite;
+margin: auto;
+}
+
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    body{
+        /* background-color: white; */
+        background-color: #e2e2e2;
+    }
+
+    html{
+        /* font-family: 'JalnanGothic'; */
+        font-family: 'Pretendard-Regular';
+    }
+    .title{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 800;
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .container1{
+        border: 3px solid #0a1520;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        width: 80%;
+        max-width: 1000px;
+        min-width: 300px;
+        height: auto;
+        text-align: center;
+        padding: 30px 30px 10px 30px;
+        margin: auto;
+    }
+
+    .container2{
+        background-color: white;
+        border: 3px solid #919191;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        width: 80%;
+        max-width: 800px;
+        min-width: 300px;
+        height: auto;
+        text-align: center;
+        padding: 30px 30px 10px 30px;
+        margin: auto;
+    }
+
+    .None1{
+        margin-top:50px;
+    }
+    .None2{
+        margin-top:50px;
+    }
+    .None3{
+        margin-bottom: 200px;
+    }
+
+
+    .maintxt{
+        font-size: 2.1rem;
+    }
+    hr{
+        height: 10px;
+        background-color: #e2e2e2;
+        border: 0px;
+    }
+
+
+
+    .tab1{
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .block{
+        width: 100%;
+        max-width: 200px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 10px;
+        display: inline-block;
+        padding-top: 10px;
+        color: black;
+        background-color: white;
+    }
+    #circle{
+        max-width: 30px;
+        position: absolute; /* 추가된 부분: 절대 위치 설정 */
+        transform: translate(135%, -20%);
+        background-color: rgb(255, 207, 74);
+        border-radius: 100%;
+    }
+    #circle1{
+        max-width: 30px;
+        position: absolute; /* 추가된 부분: 절대 위치 설정 */
+        transform: translate(100%, -20%);
+        background-color: rgb(255, 207, 74);
+        border-radius: 100%;
+    }
+    #circle2{
+        max-width: 30px;
+        position: absolute; /* 추가된 부분: 절대 위치 설정 */
+        transform: translate(185%, -20%);
+        background-color: rgb(255, 207, 74);
+        border-radius: 100%;
+    }
+
+
+
+
+    .tab2{
+        text-align: center;
+    }
+    .content_title{
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: gray;
+        text-decoration: underline;
+        text-decoration-color: #e2e2e2;
+        text-decoration-thickness: 5px;
+    }
+    .content_subtitle{
+        margin-bottom: 10px;
+    }
+    .content{
+        font-weight: 0;
+        color: gray; 
+        margin-bottom: 10px;   
+    }
+    #cam{
+        border-radius: 10px;
+        border: 3px solid rgb(187, 187, 187);
+        max-width: 600px;
+        width: 100%;
+        max-height: 400px;
+        height: 100%;
+        margin: auto;
+        /* margin-bottom: 30px; */
+    }
+    p{
+        position: relative;
+        text-align: left;
+    }
+    .send_result{
+        text-decoration: None;
+        color: rgb(38,74,176);
+    }
+
+    .capture{
+        display: None;
+    }
+
+    .txt-box{
+        font-family: 'Pretendard-Regular';
+        max-width: 600px;
+        width: 100%;
+        text-align: left;
+        margin: auto;
+    }
+
+    #live-chat {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 117px;
+        height: 40px;
+        border: none;
+    
+        backdrop-filter: blur(3px);
+        border-radius: 6px;
+        background-color: rgba(40, 40, 40, 0.9);
+        color: white;
+    
+        padding: 10px 20px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }

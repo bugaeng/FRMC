@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face ID Login</title>
+  <link href="login.css" rel="stylesheet">
+  <link href="z-index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="title">Login</div>
+  <div id="container">
+    <form action="#" id="form">
+      <table class="table">
+        <tr>
+          <th class="login">Address ID</th>
+          <td><input class="text" type="email" id="signInEmail" placeholder="abc@email.com"></td>
+        </tr>
+          <th style="height: 30px;"></th>
+        <tr>
+          <th class="login">Password</th>
+          <td><input class="text" type="password" id="signInPassword" placeholder="password"></td>
+        </tr>
+      </table>
+    
+      <div style="margin-top: 20px;"></div>
+      <div class="buttons">
+        <div><input type="submit" class="btn1" value="Login" id="signInButton"></div>
+    </form>
+        <a href="/signup/signup.html"><div><input type="button" class="btn3" value="Sign Up"></div><a>
+      </div>
+  </div>
+</body>
+  <script type="module" src="login.js"></script>
+  <!-- 중요★ js 파일에서 import하려는 경우 스크립트 타입에 module을 써줘야 사용가능하다.-->
+</html>

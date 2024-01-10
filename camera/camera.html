@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>웹화면 </title>
+    
+    <style>
+
+      #webcam-container {
+          position: relative;
+          width: 100%;
+          height: 500px; /* 원하는 높이로 조정해주세요 gg*/
+      }
+      
+      #webcam-container canvas {
+          position: absolute;
+          top: 100;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+      
+      #label-container {
+          margin-top: 20px;
+      }
+  
+      </style>
+
+
+<link rel="stylesheet" href="login2.css">
+
+
+</head>
+
+
+  <body style="overflow-x: hidden">
+
+
+    <nav id='menu' style="z-index: 9;">
+      <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label> </label>
+      <ul>
+          
+        <li><a href='../Mainpage.html'>Home</a></li>
+        <li><a class='dropdown-arrow' >카메라 테스트</a>
+          <ul class='sub-menus'>
+            <li><a href='/patient/patient.html'>피부암 테스트</a></li>
+       
+       
+          </ul>
+        </li>
+       
+    </nav>
+    
+    
+
+  <div id="jb-content" style="position: relative; width: 100%; margin: none; height: 400px; left: 0%; text-align: center;"  >
+  
+    <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425456/ltekybkstiyl7faumrsq/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%; filter: brightness(50%); height: 400px;">
+    <p style="text-align: center; color: white;" class="text"> 카메라 </p>
+
+  </div>
+
+     
+
+
+
+<!--여기밑에 신체정보 불러와보기-->
+
+<div id="jb-content" style="position: relative; width: 100%; margin: none; height: 600px; font-size: 15px; text-align: center;"  > 
+  <br>
+  <br>
+  <form style="position: relative;  text-align: center; z-index: 5;">
+    <br>
+    <label for="fname" >예상질병</label><br>
+    <input type="text" id="fname" name="fname" value="" style="border: none; background: transparent; text-align: center; z-index: 5; " disabled/> <!-- 추가 할께 있으면 인풋 값을 수정 css 도 수정-->
+  </form>
+  <br>
+  <!-- 로컬값을 보고싶은경우
+<script>
+const localStorageList = document.getElementById("localStorageList");
+const keyOrder = ["나이", "이름", "무게" , "질병"]; // 출력 순서에 맞게 키를 배열로 지정 
+
+//로컬값 불러오는 것들 수정 
+for (let i = 0; i < localStorage.length; i++) {
+   const key = localStorage.key(i);
+   const value = localStorage.getItem(key);
+
+   const listItem = document.createElement("p");
+   listItem.innerHTML = `<p style="margin: 0px; position: relative; width: 20%; left: -10%;">${keyOrder[i]} : ${value} </p>`;    //p 형식으로 생성
+
+   localStorageList.appendChild(listItem);
+}
+</script>
+
+
+
+
+  -->
+  
+  
+  
+  
+
+  
+  
+
+
+
+<blockquote class="helloworld" style=" font-weight: bolder; margin: 0px;  top: 60%;">
+  <p id="quotation"></p>
+  <footer>
+    <p id="source"></p>
+  </footer>
+</blockquote>
+
+
+
+
+
+<script type="text/javascript" >
+
+
+
+let lastLabel = ""; //비어있는값이 있어야 집어넣는다.
+let timeThreshold = 7000; //밀리초 
+let startTime = 0;
+
+
+/*
+ let time = 0;
+
+  setInterval(function(){
+    time++
+    console.log(time)
+  }, 1000);
+*/
+
+  // Classifier Variable
+  let classifier;
+  // Model URL
+  let imageModelURL = '/testimage/'; //폴더 주소 링크주소라면 모델 링크로 node js 쓰니 main js 에서 자동으로 잡힌링크때문에 이걸 비워야한다.
+  // /testimage/ 이전코드 
+  // Video
+  let video;
+  let flippedVideo;
+  // To store the classification
+  let label = "";
+
+
+
+/* 모바일 전면부 카메라를 원할시에 
+
+
+  // Load the model first
+  function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+  }
+
+  function setup() {
+  createCanvas(400, 300);
+
+  if (isMobileDevice()) {
+    video = createCapture({
+      video: {
+        facingMode: {
+          exact: "environment"
+        }
+      }
+    });
+  } else {
+    video = createCapture(VIDEO);
+  }
+  video.size(400, 300);
+  video.hide();
+
+  flippedVideo = ml5.flipImage(video);
+
+  // Start classifying
+  classifyVideo();
+}
+
+
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+
+
+*/
+/* 모바일로는 전면카메라 달고싶지않다면 
+
+ function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+  }
+
+  function setup() {
+  createCanvas(400, 300);
+
+    video = createCapture(VIDEO);
+ 
+  video.size(400, 300);
+  video.hide();
+
+  flippedVideo = ml5.flipImage(video);
+
+  // Start classifying
+  classifyVideo();
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+  // Load the model first
+  function preload() {
+    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+  }
+
+  function setup() {
+  createCanvas(400, 300);
+
+  if (isMobileDevice()) {
+    video = createCapture({
+      video: {
+        facingMode: {
+          exact: "environment"
+        }
+      }
+    });
+  } else {
+    video = createCapture(VIDEO);
+  }
+  video.size(400, 300);
+  video.hide();
+
+  flippedVideo = ml5.flipImage(video);
+
+  // Start classifying
+  classifyVideo();
+}
+
+
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+
+
+function draw() {
+  const fnameInput = document.querySelector("#fname");
+    fnameInput.value = label;
+    background(0);
+  push();
+  translate(width, 0);
+  scale(-1, 1);
+  image(flippedVideo, 0, 0, width, height);
+  pop();
+
+  // Draw the label
+  fill(255);
+  textSize(20);
+  textAlign(CENTER);
+  text(label, width / 2, height - 4); //텍스트 위치 
+}
+
+  // Get a prediction for the current video frame
+  function classifyVideo() {
+    flippedVideo = ml5.flipImage(video)
+    classifier.classify(flippedVideo, gotResult);
+    flippedVideo.remove();
+
+  }
+
+
+
+
+function gotResult(error, results) {
+  // If there is an error
+  if (error) {
+    console.error(error);
+    return;
+  }
+  label = results[0].label;
+
+
+
+  if (lastLabel !== results[0].label) {
+    startTime = millis();
+  }
+  
+  label = results[0].label;
+  
+  if (label === "보웬병" && millis() - startTime >= timeThreshold) {
+    let input = select('#fname');
+ 
+  
+    // Set the input value with the label
+    input.value(label);
+
+             Swal.fire({//외부 스크립트 가지고와서 적용된것 
+             icon: "success",
+            title: "보웬병이 의심됩니다!",
+            text: "다음링크로이동합니다",
+            footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>', 
+            onClose: function() {
+                window.location.href = '/final/final.html';
+
+                if (label === "보웬병") {
+                savedLabel = "보웬병"; //질병이름
+              
+                // 로컬 저장
+                localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+              }
+            }
+            });
+            if (isPopupShown) {
+             return;
+            }
+         /*   */
+     
+
+  }
+
+    lastLabel = label;
+
+  
+  if (label === "각화증 병변" && millis() - startTime >= timeThreshold) {
+   
+  let input = select('#fname');
+
+  // Set the input value with the label
+  input.value(label);
+   
+
+  Swal.fire({
+            icon: "success",
+          title: "각화증 병변이 의심됩니다!",
+          text: "다음링크로 이동합니다.",
+          footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>',
+          onClose: function() {
+              window.location.href = '/final/final.html';
+
+              if (label === "각화증 병변") {
+              savedLabel = "각화증 병변"; //질병이름
+            
+              // 로컬 저장
+              localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+            }
+          }
+        }); 
+        if (isPopupShown) {
+          return;
+        }
+      }
+            lastLabel = label;
+
+if (label === "기저세포암종" && millis() - startTime >= timeThreshold)  //이제 한글도됨 대신 티처머신에서 한글로 라벨을 정해줄것
+  {
+
+  
+  let input = select('#fname');
+
+
+  // Set the input value with the label
+  input.value(label);
+
+
+  Swal.fire({
+            icon: "success",
+          title: "기저세포암종이 의심됩니다!",
+          text: "다음링크로 이동합니다.",
+          footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>',
+          onClose: function() {
+              window.location.href = '/final/final.html';
+
+              if (label === "기저세포암종") {
+              savedLabel = "기저세포암종"; //질병이름
+            
+              // 로컬 저장
+              localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+            }
+          }
+        }); 
+        if (isPopupShown) {
+          return;
+        }
+
+      }
+     lastLabel = label;
+
+    if (label === "피부섬유종" && millis() - startTime >= timeThreshold)  //이제 한글도됨 대신 티처머신에서 한글로 라벨을 정해줄것
+  {
+
+  
+  let input = select('#fname');
+
+  
+
+    
+  // Set the input value with the label
+  input.value(label);
+
+
+  Swal.fire({
+            icon: "success",
+          title: "피부섬유종이 의심됩니다!",
+          text: "다음링크로 이동합니다.",
+          footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>',
+          onClose: function() {
+              window.location.href = '/final/final.html';
+
+              if (label === "피부섬유종") {
+              savedLabel = "피부섬유종"; //질병이름
+            
+              // 로컬 저장
+              localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+            }
+          }
+        }); 
+        if (isPopupShown) {
+          return;
+        }
+      }
+      lastLabel = label;
+
+      if (label === "혈관병변" && millis() - startTime >= timeThreshold)  //이제 한글도됨 대신 티처머신에서 한글로 라벨을 정해줄것
+  {
+
+  
+  let input = select('#fname');
+
+  
+
+    
+  // Set the input value with the label
+  input.value(label);
+
+
+  Swal.fire({
+            icon: "success",
+          title: "혈관병변이 의심됩니다!",
+          text: "다음링크로 이동합니다.",
+          footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>',
+          onClose: function() {
+              window.location.href = '/final/final.html';
+
+              if (label === "혈관병변") {
+              savedLabel = "혈관병변"; //질병이름
+            
+              // 로컬 저장
+              localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+            }
+          }
+        }); 
+        if (isPopupShown) {
+          return;
+        }
+      }
+      lastLabel = label;
+
+      if  (label === "흑색종" && millis() - startTime >= timeThreshold)  //이제 한글도됨 대신 티처머신에서 한글로 라벨을 정해줄것
+  {
+
+  
+  let input = select('#fname');
+
+  
+  // Set the input value with the label
+  input.value(label);
+
+
+  Swal.fire({
+            icon: "success",
+          title: "흑색종이 의심됩니다!",
+          text: "다음링크로 이동합니다.",
+          footer: '<a href="https://www.youtube.com/">유튜브나 볼래요</a>',
+          onClose: function() {
+              window.location.href = '/final/final.html';
+
+              if (label === "흑색종") {
+              savedLabel = "흑색종"; //질병이름
+            
+              // 로컬 저장
+              localStorage.setItem('disease', savedLabel); // 질병이라는 키값
+            }
+          }
+        }); 
+        if (isPopupShown) {
+          return;
+        }
+      }
+      lastLabel = label;
+
+
+
+if (label === "정상" && millis() - startTime >= timeThreshold )
+{
+  let input = select('#fname');
+  input.value(null);
+    //질병이 감지되지 않고 아무것도 안뜨는 
+  //no 인 상태일때는 null 값으로 비워버림
+  Swal.fire({
+            icon: "success",
+          title: "정상입니다!",
+          text: "이전페이지로 돌아갑니다..",
+          
+          onClose: function() {
+              window.location.href = '../../Mainpage.html';
+
+           }
+          
+        });
+  
+        if (isPopupShown) {
+          return;
+        }
+}
+lastLabel = label;
+
+  // Classify again!
+  classifyVideo();
+}
+</script>
+    
+</div>
+ 
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<div id="jb-footer" style="color: white;">
+<p style=" margin: 0px;"> 회사 정보 </p>
+</div>
+
+
+<!--<script src="sweetalert2.all.min.js"></script>-->
+
+<script src="camera.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/addons/p5.dom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js"></script>
+
+</body>
+</html>

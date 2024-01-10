@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질병 진단</title>
+    <link href="disease_skin_disease.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+</head>
+<body>
+    <div id="loading-table">
+        <div id="loading"></div>
+        <div id="loading-tag">결과를 보내고 있습니다.</div>
+    </div>
+    <div class="title">종합 질병 진단</div>
+    <div class="None1"></div>
+    <div class="container1" style="border: 0px; padding: 0px">   
+    <div class="tab1">
+        <div class="block">안면비대칭검사<img id="circle1" src="../image/circle.png"  style="background-color: rgb(255, 255, 255);"></div>  
+        <div class="block" style="background-color: rgb(255, 207, 74);">피부병변검사<img id="circle" src="../image/circle.png"></div>  
+        <div class="block">결과 분석<img id="circle2" src="../image/circle.png"></div>          
+        <div class="block">관련 병원 추천</div>
+    </div>
+    </div>
+    <div class="container2">
+        <div class="maintxt">피부병변검사</div>
+        <hr>
+            <div class="tab2">
+                <div class="content_title">&nbsp;피부 의심병변 인식&nbsp;</div>
+                <img src="http://localhost:8005/Skin_disease" id="cam" onload="showImage()" />
+                <br>
+                
+            </div>
+            <!-- <h1>Facial Palsy Detection</h1>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Submit</button>
+            </form>
+            <br>
+            <img src="/static/result.jpg" alt="Result Image">
+            <div class="content_title">얼굴 분석 결과</div> -->
+            <div class="content_title">&nbsp;측정 데이터&nbsp;</div>
+            <div class="txt-box">
+                <div id="distance_info"></div>
+                <!-- <img src="{{ url_for('static', filename='result.jpg') }}" alt="처리된 결과"> -->
+                <!-- <button id="valuebtn" value="labelValue"></button> -->
+                
+                <p>피부 의심병변 : <span id="disease_label_n"></span><span id="disease_label_h"></span><span id="disease_score"></span></p>
+                
+            
+                <p>
+                    <button class="cap-btn">
+                        <span>측정</span>
+                    </button>
+                </p>
+            </div>
+            <br>
+            <canvas class="capture"></canvas>
+            <div style="text-align: right; margin-bottom: 20px;">
+                <strong><a href="/disease/disease_result.html" class="send_result">결과보내기 <img src="../image/next-page.png" class="hvr-icon" style="width: 20px; transform: translate(0, 4px);" ></a></strong>
+            </div>
+            <button id="live-chat"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</button>
+            <script>
+                document.getElementById('live-chat').addEventListener('click', function() {
+                    window.location.href = '../Mainpage.html';
+                });
+            </script>
+
+            <script>
+
+                function showImage() {
+                            // 이미지가 로드되면 이미지를 표시하도록 설정
+                            document.getElementById('cam').style.display = 'block';
+                        }
+
+                document.querySelector(".send_result").addEventListener("click", (event) => {
+                    event.preventDefault();
+                    showLoading();
+                    setTimeout(() => {
+                        document.getElementById('loading-tag').innerHTML = '결과 분석중...';
+                        setTimeout(() => {
+                            document.getElementById('loading-tag').style.color = 'black';
+                            document.getElementById('loading-tag').innerHTML = '분석 완료';
+                            document.getElementById('loading').style.borderTopColor = '#17c400';
+                            document.getElementById('loading').style.border = '5px solid #17c400';
+                            setTimeout(next,1000)
+                        }, 2000);
+                        
+                    }, 2000);
+
+                    
+                    
+                });
+
+                function  showLoading() {
+                    document.getElementById('loading').style.display = 'block';
+                    document.getElementById('loading-table').style.display = 'block';
+
+                    document.querySelector(".container1").style.opacity = '0.4';
+                    document.querySelector(".container2").style.opacity = '0.4';
+                    document.querySelector(".title").style.opacity = '0.4';
+                }
+
+                function next() {
+                    window.location.href = "disease_result.html";
+                }
+
+                // 이미지 저장 및 캡쳐
+                const canvas = document.querySelector(".capture");
+                document.querySelector(".cap-btn").addEventListener("click", () => {
+
+                    let img = new Image();
+                    img.src = "http://localhost:8005/Skin_disease";
+                    img.crossOrigin = 'Anonymous';
+                    img.onload = function() {
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+                        canvas.getContext("2d").drawImage(img, 0, 0);
+                        const capturedImageDataUri = canvas.toDataURL('image/jpeg');
+                        localStorage.setItem("Skin_image", capturedImageDataUri);
+                    }
+
+                    $.get('http://localhost:8005/Skin_disease_label_n', function (data) {
+
+                    $('#disease_label_n').text('[분류번호 ' + data + ']');
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label_h', function (data) {
+
+                    $('#disease_label_h').text(' ' + data + ' ');
+                    localStorage.setItem("skin_label", data);
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_score_v', function (data) {
+
+                    $('#disease_score').text(data);
+                    localStorage.setItem("score_label", data);
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label0', function (data) {
+
+                    localStorage.setItem("label0", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label1', function (data) {
+
+                    localStorage.setItem("label1", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label2', function (data) {
+
+                    localStorage.setItem("label2", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label3', function (data) {
+
+                    localStorage.setItem("label3", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label4', function (data) {
+
+                    localStorage.setItem("label4", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_label5', function (data) {
+
+                    localStorage.setItem("label5", data)
+                    });
+                    
+                    $.get('http://localhost:8005/Skin_disease_label6', function (data) {
+
+                    localStorage.setItem("label6", data)
+                    });
+
+
+
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities0', function (data) {
+
+                    localStorage.setItem("probabilities0", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities1', function (data) {
+
+                    localStorage.setItem("probabilities1", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities2', function (data) {
+
+                    localStorage.setItem("probabilities2", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities3', function (data) {
+
+                    localStorage.setItem("probabilities3", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities4', function (data) {
+
+                    localStorage.setItem("probabilities4", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities5', function (data) {
+
+                    localStorage.setItem("probabilities5", data)
+                    });
+
+                    $.get('http://localhost:8005/Skin_disease_probabilities6', function (data) {
+
+                    localStorage.setItem("probabilities6", data)
+                    });
+                                        
+                });
+
+
+
+
+
+                // 라벨값 표시(버튼) -캡처하기와 합침
+                // $('#valuebtn').click(function() {
+   
+                //     $.get('http://localhost:8000/Facial_palsy_Eye_Value', function (data) {
+
+                //     $('#asymmetric-eye-value').text(data);
+                //     });
+
+                //     $.get('http://localhost:8000/Facial_palsy_Lip_Value', function (data) {
+
+                //     $('#asymmetric-lip-value').text(data);
+                //     });
+
+                //     $.get('http://localhost:8000/Facial_palsy_Total_Value', function (data) {
+
+                //     $('#asymmetric-total-value').text(data);
+                //     });
+                // });
+                    
+                //라벨값 표시(연속)
+                // function updateAsymmetricValue() {
+
+                //     $.get('http://localhost:8000/Facial_palsy_Value', function (data) {
+
+                //         $('#asymmetric-value').text('Asymmetric Value: ' + data);
+                //     });
+                // }
+
+
+                // setInterval(updateAsymmetricValue, 1000);
+
+
+            </script>
+    </div>
+</body>
+</html>

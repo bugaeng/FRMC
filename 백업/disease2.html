@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="z-index.css" rel="stylesheet">
+    <link href="disease2.css" rel="stylesheet">
+    <!-- <link href="main.css" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+  
+  
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">피부 질환 진단 설명서</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+            Modal body..
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+  
+        </div>
+    </div>
+    <div class="title">질병 진단 테스트</div>
+    
+    
+    <div class="slick one-tain">
+        <!-- Slide 1 -->
+        <div class="slick-track">
+            <div class="disease1"> 
+
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" style="width:25%; "></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                    </div>
+                    <div class="progress-text" style="width: 25%; font-size: 12px;">1단계</div>
+                </div>
+
+                <div class="form">
+                    <div class="maintitle1">중증 질환 진단</div>
+                    <hr>
+                    <div><span class="titles">안면 신경 검사</span></div>
+                    <!-- <table class="table">
+                    <tr>
+                        <th class="user-info">이 름 :</th>
+                        <td class="user-info"><input type="text" class="user-info-regist"></td>
+                    </tr>
+                    <tr>
+                        <th class="user-info">성 별 :</th>
+                        <td class="user-info"><input type="text" class="user-info-regist"></td>
+                    </tr>
+                    <tr>
+                        <th class="user-info">나 이 :</th>
+                        <td class="user-info"><input type="text" class="user-info-regist"></td>
+                    </tr>
+                   
+                    </table> -->
+                    <!-- <img src="http://localhost:8000/Facial_palsy" width="600" height="400" style="margin: auto;" /> -->
+                    <!-- <button class="slick-prev">Previous</button>
+                    <button class="slick-next">Next</button> -->
+                    <div class="slick-next-button"><span>▶</span>Take the next step </div>
+                    <!-- <span class="ico"><img src="/image/pngegg-1.png"></span> -->
+                </div>
+                
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slick-track">
+            <div class="disease2"> 
+
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; "></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                    </div>
+                    <div class="progress-text" style="width: 75%; font-size: 12px;">2단계</div>
+                </div>
+
+                
+                
+                <div class="form2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="z-index: 10;">
+                        Help
+                    </button>
+                    <div class="maintitle">피부 질환 진단</div>
+                    <hr>
+                    <div class="container1">
+                        <div><span class="titles">피부 인식</span></div>
+                        <!-- <img src="http://localhost:8000/Skin_disease" width="600" height="300" style="margin: auto;" />  -->
+                         <div id="webcam-container"></div>
+                    </div>
+                     <div class="zero2"></div>
+                    <div><span class="titles">피부 병변 감지</span></div>   
+                    
+                        <canvas id="myChart"></canvas>
+
+                    <div class="slick-next-button"><span>▶</span>Take the next step </div> 
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slick-track">
+            <div class="disease3"></div>       
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                        <div class="progress-bar" style="width:25%; "></div>
+                        <div class="progress-bar" style="width:25%; background-color: #e9ecef;"></div>
+                    </div>
+                    <div class="progress-text" style="width: 125%; font-size: 12px;">3단계</div>
+                </div>
+
+
+                <div class="form3">
+                    <div class="maintitle1">피부 질환 분석 결과</div>
+                    <hr>
+                    <div><span class="titles">사용자 정보</span></div>
+                    <table class="table">
+                        <tr>
+                            <th class="user-info">이 름 :</th>
+                            <td class="user-info">user name</td>
+                        </tr>
+                        <tr>
+                            <th class="user-info">성 별 :</th>
+                            <td class="user-info">sex</td>
+                        </tr>
+                        <tr>
+                            <th class="user-info">나 이 :</th>
+                            <td class="user-info">age</td>
+                        </tr>
+                    </table>
+                    <div class="zero2"></div>
+                    <div><span class="titles">데이터 분석</span></div>   
+                    <div class="data-result"></div>
+                    <div class="slick-next-button"><span>▶</span>Take the next step </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+    <div class="zero"></div>
+    
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript"></script>
+    <script src="disease.js"></script>
+    <script src="z-index.js"></script>
+    <script>
+         $(document).ready(function(){
+            $('.slick').slick({
+                // autoplay: true,  // 자동재생 활성화
+                // autoplaySpeed: 3000  // 재생 간격(ms) - 2000은 2초
+                nextArrow: false, // 기본 Next 버튼 숨기기
+                prevArrow: false 
+            });
+            $('.slick-next-button').click(function(){
+                $('.slick').slick('slickNext');
+            });
+         });
+         
+    </script>
+</html>

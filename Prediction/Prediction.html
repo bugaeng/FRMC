@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/Prediction/Prediction.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+</head>
+<body>
+    <div class="title">얼굴 나이 측정</div>
+    <div class="img-box">
+        <img src="http://localhost:8005/prediction" id="cam"/>
+    </div>
+    <canvas class="capture"></canvas>
+  
+    <p id="prediction" style="text-align: center;"></p>
+
+
+    <button id="live-chat"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</button>
+    <script>
+        document.getElementById('live-chat').addEventListener('click', function() {
+            window.location.href = '/intro/main.html';
+        });
+    </script>
+<script>
+  setInterval(function(){
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8005/prediction_text");
+    xhr.addEventListener("load", function(){
+        document.getElementById("prediction").innerText = xhr.responseText;
+    });
+    xhr.send();
+}, 2000);
+</script>
+
+</body>
+</html>

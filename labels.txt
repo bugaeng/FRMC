@@ -1,0 +1,7 @@
+0 Bowen's disease
+1 Basal Cell Carcinoma
+2 Keratosis Lesions
+3 Dermatofibroma
+4 Melanoma
+5 Vascular lesion
+6 Normal

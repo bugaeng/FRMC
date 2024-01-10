@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>총합 예상되는 질병정보</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+<style>
+
+
+
+</style>
+
+<body style="overflow-x: hidden; width: auto;">
+
+  <nav id='menu' style="z-index: 9; ">
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label> </label>
+    <ul>
+        
+      <li><a href='Mainpage.html'>Home</a></li>
+      <li><a class='dropdown-arrow' >카메라 테스트</a>
+        <ul class='sub-menus'>
+          <li><a href='patient.html'>피부암 테스트</a></li>
+         
+        </ul>
+      </li>
+    
+  </nav>
+  
+
+
+
+
+
+
+  <div id="jb-content" style="position: relative; top: -50px; width: 100%; margin: none; height: 400px;"  >
+    <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425456/ltekybkstiyl7faumrsq/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%; filter: brightness(50%); height:  400px;">
+      <p style="text-align: center; color: white;" class="text"> 사용자 정보</p>
+
+</div> 
+
+  
+
+<div id="jb-content2" style="position: relative; width: 100%; margin: none; height: 800px; left: 0%; text-align: center;"  >
+
+    <h2> 예상되는 환자 질병정보 </h2>
+    <h2>환자정보</h2> 
+    
+    <p id="localStorageList" style=" margin: 0px; font-size: 24px; font-weight: bolder;">
+    
+    </p>
+    <h3> 추천하는 병원</h3>
+    <br>
+    <p id="disease"> </p>
+
+ 
+    <button id="button1" onclick="clearLocalStorage() , window.location.reload()"  > 개인정보 모두 삭제 
+
+    </button>
+
+
+    
+
+
+
+</div>
+
+
+
+
+<div id="jb-footer" >
+  <br>
+  <p style="margin: 0px; padding: 0px; color: white; "> 회사 ㅁㅁ ㅁㅁ ㅁㅁ 
+  </p>
+  <p style="margin: 0px; padding: 0px; color: rgba(245, 245, 245, 0.5);" >   대표자명 :  ㅇㅇㅇ, 전화번호 : 000- 0000 - 0000
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+   const localStorageList = document.getElementById("localStorageList");
+const keyOrder = ["나이", "이름", "몸무게", "질병"];
+const KeyORRR = ["살", "씨", "kg", ""];
+
+
+
+
+const valuelb = localStorage.getItem('weight');
+for (let i = 0; i < localStorage.length; i++) {
+ 
+  const key = localStorage.key(i);
+  const value = localStorage.getItem(key);
+ 
+  
+ 
+
+  const listItem = document.createElement("p");
+  listItem.innerHTML = `<p style="margin: 0px;">${keyOrder[i]}: ${value} ${KeyORRR[i]}  </p>    <br>`;
+ 
+
+
+  localStorageList.appendChild(listItem);
+}
+
+let savedLabel = localStorage.getItem('disease'); //로컬값에 병명이 들어온경우 
+if (savedLabel) { // 있으면 
+  createButton(); // 버튼  생성
+} else {
+  document.getElementById("button2").remove(); //없으면 그냥 없애버리기 
+}
+
+
+  function createButton() { 
+  const btn = document.createElement('button');
+  const btnText = document.createTextNode(`이동하기`);
+
+  btn.appendChild(btnText);
+  btn.id = "button2";
+  document.querySelector("#jb-content2").appendChild(btn);
+
+  btn.addEventListener('click', e => {
+    location.href = "/map/map.html";
+  });
+}
+function clearLocalStorage() {
+  localStorage.clear();
+  localStorageList.innerHTML = "";
+  document.getElementById("disease").innerHTML = "";
+}
+    </script>
+    <script src="final.js"></script>
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js" ></script>
+  <script>
+    AOS.init();
+
+    document.addEventListener('aos:out', ({ detail }) => {
+  console.log('animated out', detail);
+});
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

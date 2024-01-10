@@ -1,0 +1,8 @@
+{
+    "model_urls": [
+        ["https://snet-models.s3.amazonaws.com/face-services/dlib_face_recognition_resnet_model_v1.dat", null],
+        ["https://snet-models.s3.amazonaws.com/face-services/shape_predictor_5_face_landmarks.dat", null],
+        ["https://snet-models.s3.amazonaws.com/face-services/shape_predictor_68_face_landmarks.dat", null],
+        ["https://snet-models.s3.amazonaws.com/face-services/mmod_human_face_detector.dat", null]
+    ]
+}

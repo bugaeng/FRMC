@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환자정보</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    
+</head>
+
+
+
+
+<style>
+
+
+
+    input{
+        
+        border-radius: 3px;
+       
+        width: 300px;
+        height: 40px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom : 3px solid rgb(0,0,0,0.5);
+
+        background-color : rgb(0,0,0,0.0);
+        color: black;
+
+
+    }
+
+    input::placeholder{
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+
+    b{
+        bottom: 300px;
+        font-size: 20px;
+    }
+    p{
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+
+   
+  
+</style>
+
+
+<body style="overflow-x: hidden">
+
+  <nav id='menu' style="z-index: 9;">
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label> </label>
+    <ul>
+        
+      <li><a href='/Mainpage.html'>Home</a></li>
+      <li><a class='dropdown-arrow' >카메라 테스트</a>
+        <ul class='sub-menus'>
+          <li><a href='patient.html'>피부암 테스트</a></li>
+          <li><a href=''>안면 비대칭검사</a></li>
+
+          
+        </ul>
+      </li>
+     
+  </nav>
+  
+  
+  
+ 
+
+
+  <div id="jb-content" style="position: relative; top: -50px; width: 100%; margin: none; height: 400px;"  >
+    <img src="https://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425456/ltekybkstiyl7faumrsq/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%; filter: brightness(50%); height:  400px;">
+      <p style="text-align: center; color: white;" class="text"> 사용자 정보 입력</p>
+
+</div> 
+
+
+
+  <div id="jb-content" style="position: relative; width: 100%; margin: none; height: 800px; left: 0%; text-align: center;"  >
+   
+    <h1 style="font-size: 50px;"> 사용자 정보 입력</h1>
+  
+        <form id="form" class="hidden"   style="position: relative; top: 50px;" >
+            <span>
+            <p>이름</p>
+            <br>
+            <br>
+             
+            <input 
+                required
+                maxlength="15"
+                id="usernameInput"
+                type="text"
+                placeholder="당신의 이름을 기입해주세요">
+                <br>
+                <br>
+                <p>나이</p>
+               
+             
+            <input
+                required
+                maxlength="15"
+                id="ageInput"
+                type="text"
+                placeholder="당신의 나이를 기입해주세요">
+                <br>
+                <br>
+                <p>몸무게</p>
+             
+            <input
+                required
+                maxlength="15"
+                id="weightInput"
+                type="text"
+                placeholder="당신의 몸무게를 기입해주세요">
+           
+        </span>
+        <br> <br> <br> <br>
+        
+     
+           <button id="submit">입력 </button>  <button id="logout">로그아웃</button> 
+          
+
+        </form>
+        
+     
+        <b id="out" style="position: relative; top: 100px;"></b><br><br><br><br><br><br><br><br><br>
+        
+        <!-- Trigger/Open The Modal -->
+<button id="myBtn">사용 안내</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <span class="close">&times;</span>
+    <h1 style="font-size: 15px;"> 저희는 개인정보를 수집하지 않습니다.  </h1>
+    <p style="text-align: left; font-size: 15px;"> 사이트 이용시에 필요한 기록과 로그는 사용자 본인 브라우저에 저장이 됩니다.
+       만약 삭제를 원하시면 로그아웃및 개인정보 모두삭제를눌러 지워 주시기바랍니다
+       다른 방법으로는 웹브라우저의 설정 으로 가셔서 쿠키 캐시 기록 삭제를 눌러 
+       삭제가 가능합니다.
+      
+       <br>
+       <br>
+       ※ 귀하께서는 필수항목 을 입력 안하실수 있습니다. 
+       이는 서비스 제공에 필수적으로 제공되어야 하는 정보이므로, 입력을 거부하실 경우 서비스 이용 등을 하실 수 없습니다.
+      
+      </p>
+
+
+    
+  </div>
+  <!-- test -->
+        
+  </div>
+
+
+
+</div>
+ 
+      <script src="https://unpkg.com/aos@next/dist/aos.js" ></script>
+      <script>
+        AOS.init();
+    
+        document.addEventListener('aos:out', ({ detail }) => {
+      console.log('animated out', detail);
+          });
+            </script>
+
+
+        
+    <link rel="stylesheet" href="login1.css">
+    <link rel="stylesheet" href="paintermodal.css">
+    <script src="patient.js"></script>
+    <script src="patientmodal.js"></script>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js" ></script>
+    <script>
+      AOS.init();
+    
+    document.addEventListener('aos:out', ({ detail }) => {
+    console.log('animated out', detail);
+    });
+    </script>
+   
+      
+  
+</div>
+<div data-aos="fade-zoom-in"
+data-aos-easing="ease-in-back"
+data-aos-delay="300"
+data-aos-offset="0">
+
+<div id="jb-footer" >
+  <br>
+  <p style="margin: 0px; padding: 0px; color: white; "> 회사 ㅁㅁ ㅁㅁ ㅁㅁ 
+  </p>
+  <p style="margin: 0px; padding: 0px; color: rgba(245, 245, 245, 0.5);" >   대표자명 :  ㅇㅇㅇ, 전화번호 : 000- 0000 - 0000
+
+</div>
+
+</div>        
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+  

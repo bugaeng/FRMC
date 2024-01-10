@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="SignUp.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">Sign Up</div>
+      <div id="container">
+        <form action="#" id="form">
+          <table class="table">
+            <tr>
+               <th class="signup">유저이름</th>
+               <td><input type="text" id="username"  placeholder="username" ></td>
+            </tr>
+               <th style="height: 30px;"></th>
+            <tr>
+            <tr>
+               <th class="signup">생년월일</th>
+               <td><input type="text" id="age"  placeholder="hhhhmmyyy" ></td> 
+            </tr>
+               <th style="height: 30px;"></th>
+            <tr>
+               <tr>
+                  <th class="signup">성 별</th>
+                  <td>
+                     <input type="radio" id="male" name="gender" value="male"><label for="male">남자</label>
+                     <input type="radio" id="female" name="gender" value="female"><label for="female">여자</label>
+                  </td>
+               </tr>
+                  <th style="height: 30px;"></th>
+               <tr>
+            </tr>
+               <th class="signup">이메일</th>
+               <td><input type="text" id="email"  placeholder="abc@email.com"></td> 
+            </tr>
+               <th style="height: 30px;"></th>
+            <tr>
+               <th class="signup">비밀번호</th>
+               <td><input type="password" id="password" name="password" placeholder="Password" ></td>
+            </tr>
+            <!-- </tr>
+               <th style="height: 30px;"></th>
+            <tr> -->
+            <!-- <tr>
+               <th class="signup" style="background-color: rgb(0, 110, 255);">Face-ID</th>
+               <td style="background-color: rgb(0, 110, 255)"><a href="CamSignUp.html"><input type="button" id="face-idIN" style="background-color: rgb(0, 110, 255); color:white" value="Regist (only if you want)"></td></a>
+            </tr> -->
+           
+            
+                   </table> 
+            <p style="text-align: center;"><input type="submit" id="sighUp" name="sign_upsubmit" value="가입" style="text-align: center; cursor: pointer; "/> </p>
+          </div>
+        </form>
+      </div>
+        
+</body>
+<script type="module" src="SignUp.js"></script>
+<script>
+   const usernameValue = document.getElementById("username");
+   const ageValue = document.getElementById("age");
+   const genderRadioButtons = document.getElementsByName("gender");
+   
+   document.getElementById("sighUp").addEventListener("click", function(event){
+
+      const usernameValue_v = usernameValue.value;
+      const ageValue_v = ageValue.value;
+      let genderValue_v = "";
+
+      // Find the selected gender label
+      for (const radioButton of genderRadioButtons) {
+         if (radioButton.checked) {
+            genderValue_v = document.querySelector(`label[for="${radioButton.id}"]`).innerText;
+            break;
+         }
+      }
+
+      localStorage.setItem("name", usernameValue_v);
+      localStorage.setItem("age", ageValue_v);
+      localStorage.setItem("gender", genderValue_v);
+   });
+</script>
+</html>

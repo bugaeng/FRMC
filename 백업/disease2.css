@@ -1,0 +1,466 @@
+@media screen and (max-width: 830px) {
+  table th.user-info{
+    font-size: 1.1rem;
+    height: fit-content;
+    padding-top: 17px;
+    width: fit-content;
+  }
+
+  div .maintitle{
+    font-size: 2.0rem;
+  }
+
+  div .maintitle1{
+    font-size: 2.0rem;
+  }
+
+  body .title{
+    font-size: 2.5rem;
+  }
+
+  table td.user-info{
+    padding-top: 15px;
+    font-size: 1.1rem;
+  }
+
+
+  table input.user-info-regist{
+    width: 100%;
+    height: 30px;
+  }
+
+  canvas #myChart {
+    width: 100%; /* 뷰포트의 100%로 조절하여 반응형으로 만듭니다. */
+    max-width: 600px; /* 최대 너비 제한을 해제합니다. */
+  }
+}
+
+@media screen and (max-width: 460px) {
+  table th.user-info{
+    font-size: 1.0rem;
+    height: fit-content;
+    padding-top: 18px;
+    width: fit-content;
+  }
+
+  table input.user-info-regist{
+    width: 100%;
+    height: 25px;
+  }
+
+  table canvas #myChart {
+    width: 100%; /* 뷰포트의 100%로 조절하여 반응형으로 만듭니다. */
+    max-width: none; /* 최대 너비 제한을 해제합니다. */
+  }
+
+  div .maintitle{
+    font-size: 1.7rem;
+  }
+
+  div .maintitle1{
+    font-size: 1.7rem;
+  }
+
+  body .title{
+    font-size: 2.0rem;
+  }
+
+}
+
+
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'JalnanGothic';
+}
+body {
+    /* background-image: url(/image/17844.jpg); */
+    background-size: 100% 100%;
+    /* background-repeat: no-repeat; */
+    background-color: #0D1117;
+    margin: 0; /* Body의 기본 margin 제거 */
+    /* overflow: hidden; Body의 기본 overflow 제거 */
+    color: white;
+}
+.title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: white;
+}
+cursor {
+    image-rendering: none;
+}
+.container1{
+    margin: 0px;
+    margin: auto;
+    width: fit-content;
+}
+canvas{
+    border: 3px solid rgb(22, 27, 34);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgb(56, 56, 56);
+    text-align: center;
+    width: 100%;
+    /* text-align: center; */
+}
+
+image{
+  border: 3px solid rgb(22, 27, 34);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgb(56, 56, 56);
+  text-align: center;
+  width: 100%;
+  /* text-align: center; */
+}
+
+#webcam-container{
+  width: fit-content;
+}
+
+canvas #myChart{
+  width: 60%;
+}
+
+button{
+    width: 46px;
+    height: 46px;
+}
+#label-container {
+    display: none;
+}
+#webcam-container{
+    width: fit-content;
+}
+.progress{
+    margin: auto;
+    text-align: center;
+}
+.progress-container{
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+/* .form{
+    width: 800px;
+    height: 600px;
+    float: right;
+    margin-right: 250px;
+    border-radius: 10px;
+    background-color: black;
+} */
+
+.form {
+    position: relative;
+    background-color: rgb(22, 27, 34);
+    box-shadow: 1px 1px 1px 1px rgb(56, 56, 56);
+    border: 3px solid #f6f8fa;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: none;
+    color: rgb(236, 236, 236);
+    outline: none;
+    overflow: hidden;
+    width: 90%; /* 변경된 부분: 뷰포트의 90%로 너비 조정 */
+    max-width: 900px; /* 변경된 부분: 최대 너비 설정 */
+    /* min-height: 600px; */
+    height: auto; /* 변경된 부분: 높이를 자동으로 조정 */
+    margin: 50px auto;
+    /* float: right; */
+    /* margin-right: 170px; */
+    padding: 10px 30px 10px 30px; 
+    text-align: center;
+    z-index: 1;
+  }
+  .form span.titles, .form2 span.titles, .form3 span.titles {
+    position: relative;
+    font-size: 1.7rem;
+  }
+  .form::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #003572, transparent);
+    transform: translate(-50%, -80%);
+    transition: width 0.1s ease, height 0.2s ease;
+  }
+  .form:hover::before {
+    --size: 800px;
+  }
+
+.zero{
+    margin-top: 200px;
+}
+
+.zero2{
+    margin-top: 50px;
+}
+
+.table{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input.user-info-regist{
+  width: 250px;
+  max-width: 250px;
+  height: 35px;
+}
+
+th.user-info{
+    background-color: #161B22;
+    color: rgb(236, 236, 236);
+    font-weight: 500;
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 10px 0px 0px 0px;
+    height: fit-content;
+}
+
+td.user-info{
+    background-color: #161B22;
+    color: rgb(128, 128, 128);
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 50%;
+    height: fit-content;
+}
+
+tr{
+    border: 1px solid #161B22;
+}
+
+.info{
+    width: 20px;
+    height: 20px;
+    border: 3px solid #b1b1b1;
+    border-radius: 100%;
+    background-color: white;
+    color: #161B22;
+    font-size: 12px;
+    float: left;
+}
+
+.maintitle{
+    text-align: center;
+    color: #f6f8fa;
+    font-size: 2.3rem;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.maintitle1{
+    text-align: center;
+    color: #f6f8fa;
+    margin-top: 10px;
+    font-size: 2.3rem;
+}
+
+hr{
+    margin: 10px 0px 50px 0px ;
+}
+
+
+button.btn.btn-primary{
+    font-size: 12px;
+    width: fit-content;
+    height: 30px;
+    float: left;
+    background-color: #b40000;
+    border: #b40000;
+}
+
+/* 인덱스 조절부분 */
+.form div, .form button, span.user-info, input.user-info-regist, th, td{
+    position: relative;
+    z-index: 2;
+  }
+
+.form2 div, .form button, span.user-info, input.user-info-regist, button, #myChart, th, td{
+position: relative;
+z-index: 2;
+}
+
+.form3 div, .form button, span.user-info, input.user-info-regist, button, th, td{
+position: relative;
+z-index: 2;
+}
+/* 인덱스 조절부분 끝*/
+
+div#myModal.modal.fade.show{
+    font-size: 12px;
+}
+
+button.btn.btn-danger{
+    font-size: 12px;
+    width: 70px;
+    height: 30px;
+}
+
+.data-result{
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background-color: #b1b1b1;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.slick-track{
+    height: fit-content;
+    width: fit-content;
+}
+
+/* .slick-prev{
+    float: left;
+    /* margin-left: 50px; */
+/* } */
+
+/* .slick-next{
+    float: right;
+} */ 
+
+/* --------------------------------------------------------------------------------------------  form */
+
+.form2 {
+    position: relative;
+    background-color: rgb(22, 27, 34);
+    box-shadow: 1px 1px 1px 1px rgb(56, 56, 56);
+    border: 3px solid #f6f8fa;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: none;
+    color: rgb(236, 236, 236);
+    outline: none;
+    overflow: hidden;
+    width: 90%; /* 변경된 부분: 뷰포트의 90%로 너비 조정 */
+    max-width: 1000px; /* 변경된 부분: 최대 너비 설정 */
+    height: auto; /* 변경된 부분: 높이를 자동으로 조정 */
+    margin: 50px auto;
+    /* float: right; */
+    /* margin-right: 170px; */
+    padding: 10px 30px 10px 30px; 
+    text-align: center;
+    z-index: 1;
+  }
+  .form2::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #002913, transparent);
+    transform: translate(-50%, -80%);
+    transition: width 0.1s ease, height 0.2s ease;
+  }
+  .form2:hover::before {
+    --size: 800px;
+  }
+  .form3 {
+    position: relative;
+    background-color: rgb(22, 27, 34);
+    box-shadow: 1px 1px 1px 1px rgb(56, 56, 56);
+    border: 3px solid #f6f8fa;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: none;
+    color: rgb(236, 236, 236);
+    outline: none;
+    overflow: hidden;
+    width: 90%; /* 변경된 부분: 뷰포트의 90%로 너비 조정 */
+    max-width: 1000px; /* 변경된 부분: 최대 너비 설정 */
+    height: auto; /* 변경된 부분: 높이를 자동으로 조정 */
+    margin: 50px auto;
+    /* float: right; */
+    /* margin-right: 170px; */
+    padding: 10px 30px 10px 30px; 
+    text-align: center;
+    z-index: 1;
+  }
+  .form3::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #002913, transparent);
+    transform: translate(-50%, -80%);
+    transition: width 0.1s ease, height 0.2s ease;
+  }
+  .form3:hover::before {
+    --size: 800px;
+  }
+
+  /* hover */
+  .slick-next-button {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    float: right;
+    margin-top: 20px;
+    max-width: 500px;
+    font-size: 80%;
+  }
+  .slick-next-button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0%;
+    right: 100%;
+    bottom: -10%;
+    background: #2098D1;
+    height: 6px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .slick-next-button:hover:before, .slick-next-buttont:focus:before, .slick-next-button:active:before {
+    right: -20%;
+  }
+  /* .slick-next-button:hover span{
+    color: #b40000;
+  } */
+
+/* Forward */
+/*.ico {
+    
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  /*.ico:hover, .ico:focus, .ico:active {
+
+  .slick-next-button:hover .ico{
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }*/

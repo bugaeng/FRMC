@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title> 맵주소 </title>
+    <!-- 여기다가 지도 api 따서 만들어야함 -->
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="map2.css">
+
+    <script defer src="./map.js"></script>
+  
+
+
+   <!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmsPUOvcsGMIqWPg3VSxUT4t4GrpEqKY&callback=initMap">
+        //API에다가 결제수단추가안하면 지도가 지원이안됨
+    </script>-->
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmsPUOvcsGMIqWPg3VSxUT4t4GrpEqKY&callback=initAutocomplete&libraries=places&v=weekly"
+defer> 
+//gps 기능을 꺼야만 검색기능이 활성화됨 
+</script>
+
+
+
+
+<style>
+  #map
+  {
+    position: absolute;
+  width: 100%;
+  height: 90vh; 
+
+     
+  }
+ button.gm-control-active{
+  position: relative;
+  top: 40%;
+ }
+
+   
+  @media (pointer:none), (pointer:coarse) {
+   #map{
+     height: 550px;
+   }
+
+}
+  
+  
+  </style>
+
+</head>
+<body>
+
+
+
+
+
+  <!--
+  <div class="topnav" id="myTopnav" style="z-index: 5;">
+      <a href="Mainpage.html" class="active"> 처음으로</a>
+     
+      <a onclick= window.location.reload() style="cursor: pointer;">새로고침</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+     
+
+
+
+      <input id="search-input" type="text" placeholder="검색" style="text-align: center;  ">  
+   
+    </div>    
+
+     -->
+
+     <main>
+      <div>
+        <a href="../Mainpage.html" style="cursor: pointer;">
+          <span>메인으로</span>
+        </a>
+      </div>
+    
+      <div>
+        <a  onclick= window.location.reload() style="cursor: pointer;">
+          <span>새로고침</span>
+        </a>
+      </div>
+      <div class="group">      
+
+      <input id="search-input" type="search" placeholder="검색"   >  
+      <span class="highlight"></span>
+      <span class="bar"></span>
+
+    </div>
+
+    </main>
+
+
+      <div id="map" > </div>
+      
+
+<footer>
+<p >검색해서 다른병원을 찾아볼수 있습니다.</p>
+<p> GPS 를 꼭 켜주세요 </p>
+</footer>
+</body>
+
+<script>
+
+  
+</script>
+
+
+</html>

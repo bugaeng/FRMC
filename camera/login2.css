@@ -1,0 +1,395 @@
+@font-face {
+  font-family: 'NPSfontBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+html {
+  font-family: 'NPSfontBold';
+  width: 100%;
+  min-height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  width: auto;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+.text {
+	color: #f2f2f2;
+	position: absolute;
+	bottom: 100px;
+	width: 100%;
+	font-weight: bolder;
+	text-align: center;
+  }
+
+
+
+
+
+
+
+main{
+    border-radius: 10px; 
+    position: relative;
+    width: 400px;
+    z-index: 2;
+    
+    top: -600px;
+    left: 39%;
+
+}
+
+
+
+
+blockquote{
+   
+   text-align: center;
+   
+   z-index: 2;
+    color: black;
+    position: relative;
+    bottom: 100px;
+    right: 0px;
+   
+    
+}
+
+
+
+    #jb-footer {
+      /*  clear: both; */
+    position: relative;
+      top: 300px;
+      min-height: 150px;
+
+      width: 100%;
+      color: black;
+      text-align: center;
+      background-color: rgb(23,23,24);
+      z-index: 99;
+
+  
+    }
+  
+ 
+
+
+
+    p{
+      padding: 10px;
+    }
+    
+
+
+
+#login {
+    width: 200;
+    border-color: transparent;
+ 
+    opacity:0.8;
+}
+
+.account {
+    display: block;
+    margin-bottom: 3px;
+    padding: 5px;
+    width: 200px;
+
+}
+
+#alert {
+    border-color: transparent;
+}
+
+.pointer{
+    cursor: pointer;
+    
+}
+
+
+
+
+
+
+select {
+   
+    width: 150px;
+    height: 35px;
+    background-size: 20px;
+    padding: 5px 30px 5px 10px;
+    border-radius: 4px;
+    outline: 0 none;
+    box-shadow: 3px 3px 3px;
+
+  }
+  select option {
+    background: black;
+    color: #fff;
+    padding: 3px 0;
+
+  }
+
+
+#quotation #source{
+
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    left: 100px;
+}
+
+
+input {
+  position: relative;
+    font-family: 'DOSIyagiMedium';
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    
+}
+
+
+
+
+
+  
+#jb-content {
+   
+    font-size: 80px;
+   position: relative;
+  height: 500px;
+  color: black;
+  flex: 1;
+/*    float: left; 선택옵션 옆으로오게하기*/
+
+
+}
+
+
+
+    html body{
+      padding: 0px;
+    }
+    
+    
+    
+
+html::-webkit-scrollbar {
+	width: 10px;
+	
+  }
+  html::-webkit-scrollbar-track {
+	background: white;
+
+  }
+  html::-webkit-scrollbar-thumb {
+	background: black;
+	border-radius: 15px;
+  }
+
+
+
+
+
+
+
+#menu {
+	position: fixed;
+	
+	
+	height: 50px;
+	
+    background-color: rgba(0, 0, 0, 0.3);
+  
+	width: 100%;
+	
+	z-index: 3;
+	
+
+
+}
+#menu ul, #menu li {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	width: 100%;
+	text-align: left;
+}
+#menu li {
+	display: inline-block;
+	position: relative;
+}
+#menu a {
+	display: block;
+	line-height: 45px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+}
+#menu a.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: 5px;
+}
+#menu li a:hover {
+	color: #0099CC;
+	background: #F2F2F2;
+}
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 45px;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+#menu label {
+	display: none;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+#menu label:before {
+	font-size: 1.6em;
+	color: black;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+#menu ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 300px;
+    height: 200px;
+    border-radius: 5px;
+	background: #444444;
+	position: absolute;
+	z-index: 99;
+	display: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#menu ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+#menu ul.sub-menus a {
+	color: black;
+	font-size: 16px;
+}
+#menu li:hover ul.sub-menus {
+	display: block
+}
+#menu ul.sub-menus a:hover{
+	background: #F2F2F2;
+	color: #444444;
+}
+@media screen and (max-width: 768px){
+	
+	#menu {position:relative;}
+	#menu ul {background:#444444;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none;text-align:left;}
+	#menu ul.sub-menus {width:100%;position:static;}
+	#menu ul.sub-menus a {padding-left:30px;}
+	#menu li {display:block;float:none;width:auto;}
+	#menu input, #menu label {position:absolute;top:0;left:0;display:block}
+	#menu input {z-index:4}
+	#menu input:checked + label {color:#FFFFFF}
+	#menu input:checked + label:before {content:"\00d7"}
+	#menu input:checked ~ ul {display:block}
+
+
+  blockquote{
+    position: relative;
+    bottom: 35px;
+    text-align: center;
+    left: -180px;
+    color: black;
+  }
+
+
+  
+  #jb-content {
+   
+    
+    position: relative;
+   height: 500px;
+   color: white;
+   flex: 1;
+    
+ 
+ }
+ 
+
+h2{
+  padding: 0px;
+  margin: 0px;
+  top: 30px;
+ 
+  width: 300px;
+  color: white;
+  z-index: 5;
+  font-size: 10;
+
+}
+
+
+p{
+  z-index: 5;
+  width: 200%;
+  padding: 0px;
+  margin: 0px;
+ 
+
+}
+
+
+  canvas {
+    position: relative;
+    top: -40px;
+    left:-150px;
+}
+
+
+#jb-footer {
+  /*  clear: both; */
+
+text-align: left;
+
+}
+
+/* 결과 값 수정*/
+#localStorageList{
+  top: 50px;
+}
+
+h2#swal2-title{
+  top: -25px;
+  left: 0px;
+  font-size: 25px;  
+  text-align: center;
+  margin: 0px;
+
+}
+
+
+}
+

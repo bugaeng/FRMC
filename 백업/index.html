@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+
+
+    <title>페이지이동준비</title>
+
+
+
+</head>
+<script src="로고.js"></script>
+<link href="로고.css" rel="stylesheet">
+
+
+
+
+<body>
+
+
+
+
+
+  <div class="container">
+
+    <h1 class="word wisteria"></h1>
+    
+    <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <circle id="Oval" cx="512" cy="512" r="512"></circle>
+          <circle id="Oval" cx="512" cy="512" r="512"></circle>
+      <circle id="Oval" cx="512" cy="512" r="512"></circle>
+  </svg>
+    
+  </div>
+
+
+</body>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js" ></script>
+<script>
+  AOS.init();
+
+document.addEventListener('aos:out', ({ detail }) => {
+console.log('animated out', detail);
+});
+</script>
+
+
+
+<script src="로고.js"></script>
+<link href="로고.css" rel="stylesheet">
+</html>

@@ -1,0 +1,183 @@
+    @font-face {
+      font-family: 'Mona Sans';
+      src:
+        url('/Mona Sans/Mona-Sans.woff2') format('woff2 supports variations'),
+        url('/Mona Sans/Mona-Sans.woff2') format('woff2-variations');
+      font-weight: 900 900;
+      font-stretch: 70% 125%;
+    }
+    .title{
+      margin-top: 100px;
+      margin-bottom: 50px;
+      position: relative;
+
+      text-align: center;
+    
+      font-size: 76px;
+      
+      
+    }
+ 
+      html, body {
+        height: 740px;
+        background-color: #e2e2e2;
+
+      }
+
+    *{
+      color: white;
+      font-family: 'Mona Sans';
+      margin: 0px;
+      padding: 0px;
+    }
+   
+      #form {
+        margin: 20px auto;
+        background-color: #e2e2e2;
+        width: 400px;
+        height: 400px;
+        padding: 50px 15px 100px 15px;
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+    
+    table{
+      text-align: center;
+      margin: auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    .login{
+      color: white;
+      background-color: #0d1117;
+      border-radius: 20px 0px 0px 20px;
+      height: fit-content;
+      width: 130px;
+      margin: auto;
+      text-align: center;
+      padding: 15px;
+    }
+    th{
+      height: 60px;
+    }
+    td{
+      width: 300px;
+      height: 0px;
+      color: #0d1117;
+      background-color: white;
+      border-radius: 0px 20px 20px 0px;
+      padding: 10px 0px 10px 0px;
+    }
+    input.text{
+      width: 250px;
+      height: 30px;
+      color: #0d1117;
+      background-color: white;
+      border: none;
+      padding-left: 15px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="button"], input[type="submit"]{
+      height: 50px;
+      width: 400px;
+      border-radius: 10px;
+      margin-top: 20px;
+      color:black;
+      font-size: 16px;
+      border: 2px solid black;
+      background-color: #e2e2e2;
+    }
+
+    .btn1:hover{
+      border: 2px solid #029aff;
+      background-color: white;
+      color: #0d1117;
+    }
+
+    .btn2:hover{
+      border: 2px solid #029aff;
+      background-color: #029aff;
+      color: white;
+    }
+
+    .btn3:hover{
+      border: 2px solid #da0016;
+      background-color: #da0016;
+      color: white;
+    }
+ 
+
+
+
+    @media (pointer:coarse) {
+    
+
+      .title {
+        position: relative;
+        left: 50%;
+        
+        transform: translateX(-50%);
+      }
+      
+      html body {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin: 0px;
+        padding: 0px;
+      }
+table{
+  width: 250;
+  left: 10px;
+}
+
+
+th{
+  position: relative;
+  width: 80px;
+}
+table td{
+  position: relative;
+  width: 80px;
+  
+}
+
+input[type="button"], input[type="submit"]{
+  position: relative;
+  right: 26px;
+  height: 50px;
+  width: 250px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color:black;
+  font-size: 16px;
+  border: 2px solid black;
+  background-color: #e2e2e2;
+}
+
+  
+
+      #form {
+        position: relative;
+        top: 50px;
+        left: 30px;
+        margin: 0px;
+        padding: 0px;
+        background-color: #e2e2e2;
+        width: 400px;
+        height: 100px;
+        text-align: center;
+      }
+     
+      .input {
+        width: 300px; 
+      }
+   
+
+
+    }

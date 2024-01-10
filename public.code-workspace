@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../health care system/intro"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}
